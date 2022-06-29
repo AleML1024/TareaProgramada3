@@ -1,0 +1,17 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/alessandro/progra2_g06_2022_01/12-CombinarStreamsYArbol'
+ 
+mkdir -p bin
+ 
+g++ -g -c --std=c++17 src/categoria.cpp -o bin/categoria.o
+ 
+g++ -g -c --std=c++17 src/catalogo.cpp -o bin/catalogo.o
+ 
+g++ -g -c --std=c++17 src/main.cpp -o bin/main.o
+ 
+cp ./categorias.txt ./bin/categorias.txt
+ 
+g++ -g -o bin/catalogo bin/categoria.o bin/catalogo.o bin/main.o
+ 
+make: Leaving directory '/home/alessandro/progra2_g06_2022_01/12-CombinarStreamsYArbol'
+ 
