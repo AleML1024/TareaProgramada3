@@ -1,9 +1,19 @@
 #include "tienda.h"
 
+Tienda::Tienda(string nombreT, string direccionI, string direccionF, string telefono)
+{
+    strcpy(this->nombreT, nombreT.c_str());
+    strcpy(this->direccionI, direccionI.c_str());
+    strcpy(this->direccionF, direccionF.c_str());
+    strcpy(this->telefono, telefono.c_str());
+}
 
 Tienda::Tienda()
 {
-     
+    strcpy(this->nombreT, "");
+    strcpy(this->direccionI, "");
+    strcpy(this->direccionF, "");
+    strcpy(this->telefono, "");
 }
 
 Tienda::~Tienda()
@@ -12,6 +22,26 @@ Tienda::~Tienda()
     {
         delete producto;
     }
+}
+
+string Tienda::ObtenerNombreT()
+{
+    return this->nombreT;
+}
+
+string Tienda::ObtenerDireccionI()
+{
+    return this->direccionI;
+}
+
+string Tienda::ObtenerDireccionF()
+{
+    return this->direccionF;
+}
+
+string Tienda::ObtenerTelefono()
+{
+    return this->telefono;
 }
 
 void Tienda::AgregarProducto(Producto *nuevoProducto)
@@ -48,7 +78,7 @@ void Tienda::CargarArchivo(istream *streamEntrada)
 
     ostream& operator << (ostream &o, const Tienda *tienda)
     {
-        o << "Planilla: " << std::endl;
+        o << "Tienda: " << tienda->nombreT << "\nDirección de internet: " << tienda->direccionI<< "\nDirección física: "<< tienda->direccionF<< "\nTeléfono: "<< tienda->telefono<< "\n"<< std::endl;
 
         for (Producto *producto : tienda->productos)
         {

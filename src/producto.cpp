@@ -17,8 +17,23 @@ Producto::Producto()
     this->existencias = 0;
 }
 
+int Producto::ObtenerId()
+{
+    return this->id;
+}
+
+string Producto::ObtenerNombreP()
+{
+    return this->nombreP;
+}
+
+int Producto::ObtenerExistencias()
+{
+    return this->existencias;
+}
+
 ostream& operator << (ostream &o, const Producto *producto)
 {
-    o << "[" << producto->id << "] - " << producto->nombreP << " " << producto->existencias;
+    o << "[" << producto->id << "] - " << producto->nombreP << " - Existencias: " << producto->existencias << "\n";
     return o; 
 }

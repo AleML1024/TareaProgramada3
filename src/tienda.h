@@ -18,15 +18,16 @@ class Tienda {
     char telefono[8]; 
 
     public:
+    Tienda(string nombreT, string direccionI, string direccionF, string telefono);
     Tienda();
     ~Tienda();
 
     void AgregarProducto(Producto *nuevoProducto);
 
-    char ObtenerNombreT();
-    char ObtenerDireccionI();
-    char ObtenerDireccionF();
-    char ObtenerTelefono(); 
+    string ObtenerNombreT();
+    string ObtenerDireccionI();
+    string ObtenerDireccionF();
+    string ObtenerTelefono(); 
 
     void GuardarArchivo(ostream *streamSalida);
     void CargarArchivo(istream *streamEntrada);
