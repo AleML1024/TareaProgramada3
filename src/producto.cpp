@@ -1,25 +1,24 @@
 #include "producto.h"
 
+
 using namespace std;
 
 Producto::Producto(int id, string nombreP, int existencias)
 {
     this->id = id;
-    this->nombreP = nombreP;
+    strcpy(this->nombreP, nombreP.c_str());
     this->existencias = existencias;
 }
 
-int Producto::ObtenerId()
+Producto::Producto()
 {
-    return this->id;
+    this->id = 0;
+    strcpy(this->nombreP, "");
+    this->existencias = 0;
 }
 
-string Producto::ObtenerNombreP()
+ostream& operator << (ostream &o, const Producto *producto)
 {
-    return this->nombreP;
+    o << "[" << producto->id << "] - " << producto->nombreP << " " << producto->existencias;
+    return o; 
 }
-
-int Producto::ObtenerExistencias()
-{
-    return this->existencias;
-} 

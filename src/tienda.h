@@ -1,24 +1,39 @@
 #ifndef TIENDA_H
 #define TIENDA_H
+
+#include <vector>
 #include <string>
 #include "producto.h"
+#include <cstring>
+#include <iostream>
 
 using namespace std;
 
 class Tienda {
-    string nombreT; //T = Tienda
-    string direccionI; //I = Internet
-    string direccionF; //F = Fisica
-    string telefono; 
+    vector<Producto *> productos;
+
+    char nombreT[15]; //T = Tienda
+    char direccionI[24]; //I = Internet
+    char direccionF[24]; //F = Fisica
+    char telefono[8]; 
 
     public:
-    Tienda(string nombre, string direccionI, string direccionF, string telefono);
+    Tienda();
     ~Tienda();
 
-    string ObtenerNombreT();
-    string ObtenerDireccionI();
-    string ObtenerDireccionF();
-    string ObtenerTelefono(); 
+    void AgregarProducto(Producto *nuevoProducto);
+
+    char ObtenerNombreT();
+    char ObtenerDireccionI();
+    char ObtenerDireccionF();
+    char ObtenerTelefono(); 
+
+    void GuardarArchivo(ostream *streamSalida);
+    void CargarArchivo(istream *streamEntrada);
+
+    friend ostream& operator << (ostream &o, const Tienda *tienda);
+
+
 };
 
 

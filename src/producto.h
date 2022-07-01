@@ -1,20 +1,23 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
+
 #include <string>
+#include <cstring>
+#include <iostream> 
+
 using namespace std;
 
 class Producto {
 
     int id;
-    string nombreP; // P= Producto
+    char nombreP[20]; // P= Producto
     int existencias;
 
     public:
     Producto(int id, string nombreP, int existencias);
-
-    int ObtenerId();
-    string ObtenerNombreP();
-    int ObtenerExistencias();
+    Producto();
+    
+    friend ostream& operator << (ostream &o, const Producto *producto);
 
 };
 
