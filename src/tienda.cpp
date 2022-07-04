@@ -51,6 +51,11 @@ void Tienda::AgregarProducto(Producto *nuevoProducto)
 
 void Tienda::GuardarArchivo(ostream *streamSalida)
 {
+    streamSalida->write((char* )nombreT, sizeof(nombreT));
+    streamSalida->write((char* )direccionI, sizeof(direccionI));
+    streamSalida->write((char* )direccionF, sizeof(direccionF));
+    streamSalida->write((char* )telefono, sizeof(telefono));
+
     for(Producto *producto : this->productos)
     {
         streamSalida->write((char *)producto, sizeof(Producto));

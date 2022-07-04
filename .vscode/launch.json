@@ -8,7 +8,7 @@
             "name": "g++ - Debug program",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/catalogo",
+            "program": "${workspaceFolder}/bin/tienda",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

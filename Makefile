@@ -4,6 +4,8 @@ all:
 	mkdir -p bin
 	g++ $(FLAGS) src/tienda.cpp -o bin/tienda.o
 	g++ $(FLAGS) src/producto.cpp -o bin/producto.o
+	g++ $(FLAGS) src/main.cpp -o bin/main.o
+	g++ -g -o bin/tienda bin/main.o bin/tienda.o bin/producto.o
 	g++ -shared -o bin/libtienda.so bin/tienda.o
 	mkdir -p bin/include
 	cp src/tienda.h src/producto.h ./bin/include
@@ -17,6 +19,6 @@ test:
 	g++ -g -o bin/tests bin/tienda.o bin/producto.o bin/tienda_tests.o bin/productos_tests.o -lgtest -lgtest_main -lpthread 
 
 clean:
-	rm -Rf bin
+	rm -Rf bin	
 	rm *.dat
-
+	cd src/ && rm *.dat
