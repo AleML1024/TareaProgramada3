@@ -30,7 +30,7 @@ class Tienda {
     string ObtenerTelefono(); 
 
     void GuardarArchivo(ostream *streamSalida);
-    void CargarArchivo(istream *streamEntrada);
+    void CargarArchivo(istream *streamEntrada, Tienda *tienda);
 
     friend ostream& operator << (ostream &o, const Tienda *tienda);
 

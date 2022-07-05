@@ -1,4 +1,5 @@
 #include "tienda.h"
+#include <iostream>
 
 Tienda::Tienda(string nombreT, string direccionI, string direccionF, string telefono)
 {
@@ -62,15 +63,21 @@ void Tienda::GuardarArchivo(ostream *streamSalida)
     }
 }
 
-void Tienda::CargarArchivo(istream *streamEntrada)
+void Tienda::CargarArchivo(istream *streamEntrada, Tienda *tienda)
 {
     // Calcule cantidad de registros
     streamEntrada->seekg( 0, std::ios::end );
     int cantidadBytesEnArchivo = streamEntrada->tellg();
-    int cantidadProductos = cantidadBytesEnArchivo / sizeof(Producto);
+    int cantidadProductos = (cantidadBytesEnArchivo - (sizeof(Tienda)-25))/ sizeof(Producto);
+
+    cout << cantidadBytesEnArchivo << endl;
+   
+    //Leer informacion de la tienda
+    streamEntrada->seekg( 0, std::ios::beg ); // Empezar desde el principio del archivo
+    streamEntrada->read((char *)tienda, (sizeof(Tienda)-25)); // variable para guardar y cuántos bytes leo
 
     // Leer cada producto
-    streamEntrada->seekg( 0, std::ios::beg ); // Empezar desde el principio del archivo
+    streamEntrada->seekg( sizeof(Tienda), std::ios::end); // Empezar desde abajo de la informacion de la tienda
     for (int indice = 0; indice < cantidadProductos; indice++)
     {
         Producto *producto = new Producto();

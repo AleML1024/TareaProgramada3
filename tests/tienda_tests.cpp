@@ -32,6 +32,8 @@ namespace
         EXPECT_EQ(direccionFActual, direccionFEsperada);
         EXPECT_EQ(telefonoActual, telefonoEsperado);
 
+        delete tienda;
+
     }
 
     TEST(Tienda_Tests, Test_Crear_Leer_Archivo_Binario)
